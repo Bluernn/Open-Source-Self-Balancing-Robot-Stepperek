@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 0 10px;
+    margin: 0;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+#saveBtn, #clearBufferBtn, #jsonDisplay, #velocityModeBtn, #ctrlModeBtn, #testModeBtn {
+    display: none;
+}
+
+label {
+    display: block;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #f5f5f5;
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#currentModeDisplay {
+    font-size: 1.1em;
+    color: #ffa726;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#tiltAngleDisplay {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #333;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 auto 15px;
+    font-size: 1.2em;
+    color: #ffa726;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    margin: 5px;
+    padding: 12px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 10px auto;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+#devModeBtn {
+    background-color: #e9c93d; 
+}
+
+#saveBtn, #clearBufferBtn, #ctrlModeBtn, #testModeBtn {
+    background-color: #d63333; 
+}
+
+button:hover {
+    background-color: #388E3C;
+}
+
+button:active {
+    background-color: #2E7D32;
+}
+
+#testModeFields,
+#ctrlFields,
+#positionModeFields,
+#velocityModeFields,
+#sensorModeFields,
+#remoteModeBox {
+    display: none;
+    margin-top: 15px;
+}
+
+/* Joystick styl */
+#joystickContainer {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background-color: #616161;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 90%;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+#joystick {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ff7043;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* JSON Display Section */
+#jsonDisplay {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #2b2b2b;
+    border: 1px solid #555;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+#jsonContent {
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #b0bec5;
+    white-space: pre-wrap;
+}
+
+#gyroControlCheckbox {
+    margin-top: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.4em;
+    }
+
+    #currentModeDisplay {
+        font-size: 1em;
+    }
+
+    #tiltAngleDisplay {
+        width: 50px;
+        height: 50px;
+        font-size: 1em;
+        line-height: 50px;
+    }
+
+    #joystickContainer {
+        width: 200px;
+        height: 200px;
+    }
+
+    #joystick {
+        width: 80px;
+        height: 80px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    #jsonDisplay {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}

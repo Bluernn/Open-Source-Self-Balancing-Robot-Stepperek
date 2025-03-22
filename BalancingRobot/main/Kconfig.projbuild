@@ -1,0 +1,44 @@
+menu "Application Configuration"
+
+	config ESP_WIFI_SSID
+        string "WiFi SSID"
+        default "BalancingRobot"
+        help
+            SSID (network name) for the example to connect to.
+	
+	config ESP_WIFI_PASSWORD
+        string "WiFi Password"
+        default "12345678"
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+	
+	config ESP_WIFI_CHANNEL
+        int "WiFi Channel"
+        range 1 13
+        default 1
+        help
+            WiFi channel (network channel) for the example to use.
+
+    config ESP_MAX_STA_CONN
+        int "Maximal STA connections"
+        default 4
+        help
+            Max number of the STA connects to AP.
+
+	config GPIO_RANGE_MAX
+		int
+		default 33 if IDF_TARGET_ESP32
+		default 46 if IDF_TARGET_ESP32S2
+		default 48 if IDF_TARGET_ESP32S3
+		default 18 if IDF_TARGET_ESP32C2
+		default 19 if IDF_TARGET_ESP32C3
+		default 30 if IDF_TARGET_ESP32C6
+
+	config I2C_ADDR
+		hex "I2C Address"
+		range 0x68 0x69
+		default 0x68
+		help
+			I2C Address.
+
+endmenu

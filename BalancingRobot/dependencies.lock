@@ -1,0 +1,15 @@
+dependencies:
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.2.1
+  mdns:
+    component_hash: null
+    source:
+      path: D:\STUDIA\_S2\_Magisterka\1.ESP\BalancingRobot\components\mdns
+      type: local
+    version: 1.4.0
+manifest_hash: 9caddcd3a4b423bd44906a61bcd8f4ee0c562617782f5c276e3f7c8ad79fd100
+target: esp32
+version: 1.0.0

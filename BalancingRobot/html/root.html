@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>SelfBalancing Robot Stepperek</title>
+</head>
+
+<body>
+    <h1>SelfBalancing Robot "Stepperek"</h1>
+    <div id="currentModeDisplay">Active Mode: Balance Mode</div>
+
+    <div id="tiltAngleDisplay">
+        <span id="tiltAngleValue">0°</span>
+    </div>
+
+    <div id="remoteModeBox">
+        <div id="joystickContainer" ontouchstart="event.preventDefault()" ontouchmove="event.preventDefault()">
+            <div id="joystick"></div>
+        </div>
+    </div>
+
+    <h2>Modes</h2>
+    <button id="balanceModeBtn">Balance Mode</button>
+    <button id="positionModeBtn">Position Mode</button>
+
+    <div id="positionModeFields">
+        <label>Ref. Position [m]: <input type="number" id="positionInput" step="0.01" min="0" max="0.5"></label>
+    </div>
+
+    <button id="quadrantSequenceMode">Quadrant Driving Mode</button>
+    <button id="sensorModeBtn">Ultrasonic Mode</button>
+
+    <div id="sensorModeFields">
+        <label>Ref. Position - Ultrasonic [m]: <input type="number" id="sensorPositionInput" step="0.01" min="0.2" max="0.9"></label>
+    </div>
+
+    <button id="remoteModeBtn">Remote Control</button>
+    <button id="ctrlModeBtn">Changing Controller Gains Mode</button>
+    
+    <div id="ctrlFields">
+        <label>Kp: <input type="number" id="KpInput"></label>
+        <label>Kd: <input type="number" id="KdInput"></label>
+    </div>
+
+    <button id="testModeBtn">Pos./Vel. Set Mode</button>
+
+    <div id="testModeFields">
+        <label>Ref. Pos./Vel.: <input type="number" id="testInput" step="0.1" min="0" max="5" value="0.2"></label>
+    </div>
+
+    <h2>Function Buttons</h2>
+    <button id="devModeBtn">DEV MODE</button>
+    <button id="saveBtn">Save Data</button>
+    <button id="clearBufferBtn">Clear Buffer</button>
+
+    <button id="startStopRobotBtn">START</button>
+    <button id="sendBtn">SEND</button>
+
+    <!-- JSON Display Section -->
+    <div id="jsonDisplay">
+        <h3>Sent JSON frame:</h3>
+        <pre id="jsonContent">{}</pre>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

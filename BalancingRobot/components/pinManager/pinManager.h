@@ -1,0 +1,25 @@
+#ifndef PINMANAGER_H
+#define	PINMANAGER_H
+
+#define M1_DIAG GPIO_NUM_36
+#define M2_DIAG GPIO_NUM_39
+#define BMI160_INT1 GPIO_NUM_34
+#define BMI160_INT2 GPIO_NUM_35
+#define M_EN GPIO_NUM_32
+#define M1_DIR GPIO_NUM_33
+#define M1_STEP GPIO_NUM_25
+#define BMI160_I2C_SDA GPIO_NUM_26
+#define BMI160_I2C_SCL GPIO_NUM_27
+#define M_MS2_AD1 GPIO_NUM_4
+#define M_SPREAD GPIO_NUM_16
+#define M2_STEP GPIO_NUM_17
+#define M2_DIR GPIO_NUM_5
+#define SERVO1 GPIO_NUM_18
+#define SR04_ECHO GPIO_NUM_19
+#define SR04_TRIGGER GPIO_NUM_21
+#define M_MS1_AD0 GPIO_NUM_22
+#define ERROR_PIN GPIO_NUM_23
+
+void PM_Configuration(void);
+
+#endif
