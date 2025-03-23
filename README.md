@@ -15,3 +15,5 @@ Includes the electrical schematic and all necessary files required to manufactur
 
 - **BalancingRobot**  
 Contains the complete control program for the self-balancing robot, developed using ESP-IDF v5.2.1. This folder includes the source code and all required files to compile project.
+
+https://www.youtube.com/watch?v=AlN4MXNQWd8
