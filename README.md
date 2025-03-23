@@ -1,5 +1,6 @@
 # Open Source Self-Balancing Robot "Stepperek"
-![Self-balancing robot](images/self_balancing_robot.pdf)
+![Self-balancing robot](img/self_balancing_robot.pdf)
+![Self-balancing robot](img/app.pdf)
 
 This repository contains an open-source project for a self-balancing robot designed for educational purposes and learning control systems. The project includes both hardware and software components.
 
