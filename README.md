@@ -1,4 +1,5 @@
 # Open Source Self-Balancing Robot "Stepperek"
+![Self-balancing robot](images/self_balancing_robot.pdf)
 
 This repository contains an open-source project for a self-balancing robot designed for educational purposes and learning control systems. The project includes both hardware and software components.
 
@@ -10,5 +11,5 @@ It contains the 3D models of the robot's wheels and motor mounts, which can be u
 - **Schematic and PCB**  
 Includes the electrical schematic and all necessary files required to manufacture the PCB.
 
-- **BalancingRobot Folder**  
+- **BalancingRobot**  
 Contains the complete control program for the self-balancing robot, developed using ESP-IDF v5.2.1. This folder includes the source code and all required files to compile project.
