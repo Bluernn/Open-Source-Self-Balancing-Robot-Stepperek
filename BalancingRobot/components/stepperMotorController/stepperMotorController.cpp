@@ -19,7 +19,7 @@
 #define DIR_2_BACKWARD  gpio_set_level(M2_DIR, 0)
 
 //200 steps/rev motor with microstepping 1/8 = 1600
-#define STEPS_NUMBER_PER_ROTATION 6400
+#define STEPS_NUMBER_PER_ROTATION (64*200)
 #define WHEEL_RADIUS 0.0335 // m
 #define TWO_PI 6.283185307179586476925286766559
 
@@ -28,6 +28,7 @@
 
 #define MAX_PWM_FREQ 70000
 
+extern volatile bool lowVoltage;
 extern volatile double setVelocity;
 extern volatile double setVelocityTurnFactor;
 extern volatile double setPosition;
@@ -136,7 +137,7 @@ void SMC_StepperInit(void)
 {   
     ESP_LOGI(SMC_TAG,"SMC_StepperInit... ");
 
-    SMC_MicrostepResolutionConfiguration(2);
+    SMC_MicrostepResolutionConfiguration(3);
     SMC_PWMConfig();
 
     MOTORS_DISABLE;
@@ -193,8 +194,10 @@ void SMC_StepperControl(void *param)
     DIR_1_BACKWARD;
     DIR_2_BACKWARD;
 
+    TickType_t xLastWakeTimeSMC = xTaskGetTickCount(); // Initial task startup time
+
     while(1) {
-        if(isStable && (roll < 45 && roll > -45) && (robotEnable == 1))
+        if(isStable && (roll < 45 && roll > -45) && (robotEnable == 1) && (lowVoltage == false))
         {
             controlEnable = true;
             MOTORS_ENABLE;
@@ -294,7 +297,7 @@ void SMC_StepperControl(void *param)
             controlEnable = false;
         }
 
-        vTaskDelay(pdMS_TO_TICKS(1));
+        vTaskDelayUntil(&xLastWakeTimeSMC, pdMS_TO_TICKS(1));
     }
 
     // Never reach here

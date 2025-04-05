@@ -15,6 +15,7 @@
 #include "../components/stepperMotorController/stepperMotorController.h"
 #include "../components/webServerClient/webServerClient.h"
 #include "../components/controllers/controllers.h"
+#include "../components/adcReader/adcReader.h"
 
 static const char *TAG = "MAIN";
 static const char *MDNS_HOSTNAME = "selfbalancingrobot";
@@ -307,6 +308,9 @@ void app_main(void)
 	// Initialize ESP Pins
 	PM_Configuration();
 
+	// Initialize ADC
+	ADC_ReaderInit();
+
 	// Initialize StepperMotors
 	SMC_StepperInit();
 
@@ -345,6 +349,8 @@ void app_main(void)
 	xTaskCreate(SendDataTask, "Send Data Task", 1024*4, NULL, 5, NULL);
 
 	xTaskCreate(UltrasonicTask, "Ultrasonic Task", 1024*2, NULL, 5, NULL);
+
+	xTaskCreate(ADC_TaskStart, "adc_task", 2048, NULL, 4, NULL);
 
 	setupTimerSD();
 	setupSequenceTimer();

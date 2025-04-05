@@ -33,7 +33,7 @@ static const char *TAG = "IMU";
 volatile double roll;
 volatile bool initialized = false;
 
-#define OFFSET 81
+#define OFFSET 82.2
 #define RAD_TO_DEG (180.0/M_PI)
 #define DEG_TO_RAD 0.0174533
 
@@ -170,14 +170,14 @@ void bmi160(void *pvParameters)
     }
 
     // Config Accel
-    sensor.accel_cfg.odr = BMI160_ACCEL_ODR_400HZ;
+    sensor.accel_cfg.odr = BMI160_ACCEL_ODR_100HZ;
     sensor.accel_cfg.range = BMI160_ACCEL_RANGE_2G; // -2 --> +2[g]
     sensor.accel_cfg.bw = BMI160_ACCEL_BW_RES_AVG8;
     sensor.accel_cfg.power = BMI160_ACCEL_NORMAL_MODE;
     accel_sensitivity = 16384.0; // g
 
     // Config Gyro
-    sensor.gyro_cfg.odr = BMI160_GYRO_ODR_400HZ;
+    sensor.gyro_cfg.odr = BMI160_GYRO_ODR_100HZ;
     sensor.gyro_cfg.range = BMI160_GYRO_RANGE_250_DPS; // -250 --> +250[Deg/Sec]
     sensor.gyro_cfg.bw = BMI160_GYRO_BW_NORMAL_MODE;
     sensor.gyro_cfg.power = BMI160_GYRO_NORMAL_MODE;
@@ -220,10 +220,9 @@ void bmi160(void *pvParameters)
         roll = madgwick.getRoll() + OFFSET;
         //rawRoll = ( 57.29578f * (atan2f(ay,az)) + OFFSET);
 
-        // Delay for 2.5 ms
-        vTaskDelayUntil(&xLastWakeTimeBMI, pdMS_TO_TICKS(2.5));
+        vTaskDelayUntil(&xLastWakeTimeBMI, pdMS_TO_TICKS(1.25));
 
-    } // end while
+    }
 
     vTaskDelete(NULL);
 }
