@@ -73,6 +73,7 @@ extern volatile PStructure Position;
 extern volatile PIStructure Velocity;
 extern volatile PDStructure Angle;
 extern volatile double setPosition;
+extern volatile double setTestValue;
 extern volatile double setVelocity;
 extern volatile double setVelocityTurnFactor;
 extern volatile bool isStation;
@@ -140,7 +141,7 @@ void sequenceTimerCallback(void *arg) {
         return;
     }
 
-	if ( currentMode == QUADRANT_SEQUENCE_MODE )
+	if ( currentMode == QUADRANT_SEQUENCE_MODE ) // - change timer to 1 s
 	{
 		switch (state) {
 			case 0: 
@@ -153,68 +154,51 @@ void sequenceTimerCallback(void *arg) {
 			break; 
 		}
 	}
-    // else if (currentMode == VELOCITY_MODE) {  // FOR TESTING THE VELOCITY CONTROLLER
-    //     switch (state) {
-    //         case 0:
-    //             Velocity.SetpointValue = 0.0; // Stop
-    //             state = 1;
-    //             break;
-    //         case 1:
-    //             Velocity.SetpointValue = setVelocity; // Move backward
-    //             state = 2;
-    //             break;
-	// 		case 2:
-	// 		    state = 3;
-    //             break;
-    //         case 3:
-    //             Velocity.SetpointValue = 0.0; // Stop
-    //             state = 4;
-    //             break;
-    //         case 4:
-    //             Velocity.SetpointValue = -setVelocity; // Move forward
-    //             state = 5;
-    //             break;
-	// 		case 5:
-	// 		    state = 0;
-    //             break;
-    //     }
-    // }
-	// else if (currentMode == POSITION_MODE) { // FOR TESTING THE POSITION CONTROLLER
-    //     switch (state) {
-    //         case 0:
-    //             Position.SetpointValue = 0.0; // Stop
-    //             state = 1;
-    //             break;
-	// 		case 1:
-	// 			state = 2;
-	// 			break;
-    //         case 2:
-	// 			Position.SetpointValue = setPosition; // Move backward
-    //             state = 3;
-    //             break;
-	// 		case 3:
-	// 		    state = 4;
-    //             break;
-    //         case 4:
-	// 			Position.SetpointValue = 0.0; // Stop
-    //             state = 5;
-    //             break;
-	// 		case 5:
-	// 			state = 6;
-	// 			break;
-    //         case 6:
-	// 			Position.SetpointValue = -setPosition; // Move forward
-    //             state = 7;
-    //             break;
-	// 		case 7:
-	// 		    state = 0;
-    //             break;
-    //     }
-    // }
-	else 
-	{
-        Velocity.SetpointValue = 0.0;
-		//Position.SetpointValue = 0.0;
+    else if (currentMode == TEST_MODE_VELOCITY) {  // FOR TESTING VELOCITY CONTROLLER - change timer to 5 s
+        switch (state) {
+            case 0:
+                Velocity.SetpointValue = 0.0; // Stop
+                state = 1;
+                break;
+            case 1:
+                Velocity.SetpointValue = setTestValue; // Move backward
+                state = 2;
+                break;
+			case 2:
+			    state = 3;
+                break;
+            case 3:
+                Velocity.SetpointValue = 0.0; // Stop
+                state = 4;
+                break;
+            case 4:
+                Velocity.SetpointValue = -setTestValue; // Move forward
+                state = 5;
+                break;
+			case 5:
+			    state = 0;
+                break;
+        }
+    }
+    else if (currentMode == TEST_MODE_POSITION) {  // FOR TESTING POSITION CONTROLLER - change timer to 10 s
+        switch (state) {
+            case 0:
+				Position.SetpointValue = 0.0; // Stop
+                state = 1;
+                break;
+            case 1:
+				Position.SetpointValue = setTestValue; // Move backward
+                state = 2;
+                break;
+            case 2:
+				Position.SetpointValue = 0.0; // Stop
+                state = 3;
+                break;
+            case 3:
+				Position.SetpointValue = -setTestValue; // Move forward
+                state = 0;
+                break;
+        }
     }
 }
 

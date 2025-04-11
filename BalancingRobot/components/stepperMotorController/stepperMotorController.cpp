@@ -205,7 +205,7 @@ void SMC_StepperControl(void *param)
             /* P Position controller */
             if (currentMode == POSITION_MODE || currentMode == BALANCE_MODE || 
                 currentMode == SENSOR_MODE || currentMode == CTRL_MODE || 
-                currentMode == TEST_MODE) {
+                currentMode == TEST_MODE_POSITION || currentMode == TEST_MODE_VELOCITY) {
                 setVelocityTurnFactor = 0;
             }
 
@@ -228,7 +228,7 @@ void SMC_StepperControl(void *param)
                 Velocity.SetpointValue = 0; // Tryb domyślny po uruchomieniu
             } else if (currentMode == REMOTE_MODE || currentMode == QUADRANT_SEQUENCE_MODE) {
                 Velocity.SetpointValue = setVelocity;
-            } else if (currentMode == SENSOR_MODE || currentMode == POSITION_MODE) {
+            } else if (currentMode == SENSOR_MODE || currentMode == POSITION_MODE || currentMode == TEST_MODE_POSITION) {
                 Velocity.SetpointValue = Position.OutputValue;
             }
 

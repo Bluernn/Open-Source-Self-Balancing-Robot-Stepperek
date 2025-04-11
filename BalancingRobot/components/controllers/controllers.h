@@ -10,7 +10,7 @@
 // Velocity controller
 #define KP_PI 40
 #define KI_PI 30
-#define KAWU_PI 0.04
+#define KAWU_PI 0.08
 
 // Angle controller
 #define KP_PD 1
@@ -23,7 +23,8 @@ enum RobotMode {
     SENSOR_MODE,
     CTRL_MODE,
     REMOTE_MODE,
-    TEST_MODE
+    TEST_MODE_POSITION,
+    TEST_MODE_VELOCITY
 };
 
 typedef struct PIStructure {

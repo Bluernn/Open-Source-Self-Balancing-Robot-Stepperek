@@ -19,6 +19,7 @@ extern volatile int robotEnable;
 extern volatile PStructure Position;
 extern volatile PDStructure Angle;
 volatile double setPosition;
+volatile double setTestValue;
 volatile double setVelocity;
 volatile double setVelocityTurnFactor;
 
@@ -107,8 +108,9 @@ void parse_message(const char* msg) {
 	{
         cJSON *webAngle = cJSON_GetObjectItem(json, "tmp");
         if (cJSON_IsNumber(webAngle)) {
-			currentMode = TEST_MODE;
-            setVelocity = webAngle->valuedouble;
+			//currentMode = TEST_MODE_POSITION;
+			currentMode = TEST_MODE_VELOCITY;
+            setTestValue = webAngle->valuedouble;
         }
     } 
 	else {
