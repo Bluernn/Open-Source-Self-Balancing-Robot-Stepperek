@@ -10,7 +10,7 @@
 // Velocity controller
 #define KP_PI 40
 #define KI_PI 30
-#define KAWU_PI 0.08
+#define KAWU_PI 0.04
 
 // Angle controller
 #define KP_PD 1
