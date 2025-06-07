@@ -98,7 +98,7 @@ void IRAM_ATTR timerCallbackSD(void *arg) {
 		.v_ref = Velocity.SetpointValue,
 		.v = Velocity.MeasuredValue,
 		//.O_ref = rawRoll,
-		.O_ref = Position.SetpointValue,
+		.O_ref = Angle.SetpointValue,
 		.O = roll,
 		.a = Angle.OutputValue
 	};

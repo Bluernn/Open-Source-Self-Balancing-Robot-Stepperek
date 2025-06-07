@@ -35,7 +35,7 @@ void C_PICalc(void)
 
     // Calculate the integral value 1) without Anti-windup 2) with Anti-windup
     //1)float integralValue = (error + Velocity.PreviousErrorValue) * Tp / 2 + Velocity.PreviousIntegralValue;
-    double integralValue = Velocity.PreviousIntegralValue + (Velocity.PreviousErrorValue - Velocity.PreviousSaturationValue) * Tp / 2;
+    double integralValue = Velocity.PreviousIntegralValue + (error + Velocity.PreviousErrorValue - Velocity.PreviousSaturationValue) * Tp / 2;
     
     // Calculate the output value
     Velocity.OutputValue = ( Velocity.Kp * error ) + ( Velocity.Ki * integralValue );

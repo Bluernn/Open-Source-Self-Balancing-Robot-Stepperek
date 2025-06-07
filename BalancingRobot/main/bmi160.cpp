@@ -33,7 +33,7 @@ static const char *TAG = "IMU";
 volatile double roll;
 volatile bool initialized = false;
 
-#define OFFSET 82.2
+#define OFFSET 81.98
 #define RAD_TO_DEG (180.0/M_PI)
 #define DEG_TO_RAD 0.0174533
 
