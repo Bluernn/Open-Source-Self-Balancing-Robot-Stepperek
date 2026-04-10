@@ -8,13 +8,13 @@ This repository contains an open-source project for a self-balancing robot desig
 ## Repository Contents
 
 - **3D Models**  
-It contains the 3D models of the robot's wheels and motor mounts, which can be used for 3D printing or further modifications.
+It contains 3D models of the robot's wheels and motor mounts for 3D printing or further modifications.
 
 - **Schematic and PCB**  
-Includes the electrical schematic and all necessary files required to manufacture the PCB.
+Includes the electrical schematic and all necessary files for manufacturing the PCB.
 
 - **BalancingRobot**  
-Contains the complete control program for the self-balancing robot, developed using ESP-IDF v5.2.1. This folder includes the source code and all required files to compile project.
+Contains the complete control program for the self-balancing robot, developed using ESP-IDF v5.2.1. This folder includes the source code and all required files to compile the project.
 
 https://www.youtube.com/watch?v=AlN4MXNQWd8
 
